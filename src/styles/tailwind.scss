@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .article-section {
+    line-height: 1.618;
+
+    &>* {
+      margin-bottom: 1.75rem;
+    }
+  }
+  
+  .article-section h1 {
+    @apply text-2xl font-semibold;
+  }
+  
+  .article-section h2 {
+    @apply text-xl font-semibold;
+  }
+
+  .article-section pre {
+    white-space: pre-wrap;
+
+    @apply bg-dark-400 border border-outline rounded-md p-6;
+  }
+
+  .article-section code {
+    @apply bg-dark-400 p-2;
+  }
+
+  .article-section ul {
+    list-style: disc;
+    margin-left: 1.25rem;
+  }
+}
