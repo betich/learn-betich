@@ -7,6 +7,12 @@ section: 1
 
 # Lesson 1: Introduction to Web Development
 
+## Code Editors
+
+1. [VSCode](https://code.visualstudio.com/) (โหลด extension Live Server)
+2. [repl.it](http://repl.it/)
+3. [CodePen](https://codepen.io)
+
 ## Element
 
 ```html
