@@ -1,5 +1,5 @@
 import parseMD from "@utils/parseMD"
-import { existsSync } from "fs"
+import { existsSync, readdirSync, readFileSync } from "fs"
 import { readdir, readFile } from "fs/promises"
 import path from "path"
 import { Article } from "../utils/types"
@@ -40,33 +40,31 @@ export const getArticle = async (id: string): Promise<{ metadata: Article; conte
 export const getAllArticles = async () => {
   const categoryPaths = await readdir(basePath) // ["web-dev", ...]
 
-  const articles: Record<string, Article[]> = categoryPaths.reduce(async (acc, category) => {
-    const articlesInCategoryPaths = (await readdir(path.join(basePath, category))).filter(async (file) =>
+  const articles: Record<string, Article[]> = categoryPaths.reduce((acc, category) => {
+    const articlesInCategoryPaths = readdirSync(path.join(basePath, category)).filter(async (file) =>
       file.endsWith(".md")
     ) // ["article1.md", ...]
 
-    const articlesInCategory: Article[] = await Promise.all(
-      articlesInCategoryPaths.map(async (articlePath) => {
-        const file = await readFile(path.join(basePath, category, articlePath), "utf8")
-        const { metadata, content } = parseMD(file)
+    const articlesInCategory: Article[] = articlesInCategoryPaths.map((articlePath) => {
+      const file = readFileSync(path.join(basePath, category, articlePath), "utf8")
+      const { metadata, content } = parseMD(file)
 
-        const { title, emoji, description, section } = metadata as {
-          title?: string
-          emoji?: string
-          description?: string
-          section?: string
-        }
+      const { title, emoji, description, section } = metadata as {
+        title?: string
+        emoji?: string
+        description?: string
+        section?: string
+      }
 
-        // return article
-        return {
-          id: articlePath.replace(".md", ""),
-          title: title ?? "",
-          emoji: emoji ?? "",
-          description: description ?? "",
-          section: section ?? "",
-        }
-      })
-    ) // [{<article1>}, ...]
+      // return article
+      return {
+        id: articlePath.replace(".md", ""),
+        title: title ?? "",
+        emoji: emoji ?? "",
+        description: description ?? "",
+        section: section ?? "",
+      }
+    }) // [{<article1>}, ...]
 
     return { ...acc, [category]: articlesInCategory }
   }, {}) // { web-dev: [{<article1>}, ...] }
