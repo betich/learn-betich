@@ -17,6 +17,10 @@
     @apply underline hover:no-underline;
   }
   
+  .article-section img {
+    @apply max-h-96;
+  }
+  
   .article-section h1 {
     @apply text-2xl font-semibold;
   }

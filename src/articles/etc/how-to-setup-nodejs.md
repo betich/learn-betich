@@ -37,6 +37,8 @@ Terminal เป็นโปรแกรมที่เพื่อป้อน�
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 
+![install-nvm](/assets/articles/how-to-setup-nodejs/install-nvm.png)
+
 ### 2. เปิดไฟล์ `~/.bashrc` แล้วเพิ่มบรรทัดดังกล่าวลงไปด้านล่างของไฟล์
 
 วิธีเปิดไฟล์ (ใช้ `nano` หรือ `vim` ก็ได้)
@@ -62,7 +64,11 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 source ~/.bashrc
 ```
 
-### 4. รัน Command `nvm install node --lts` เพื่อติดตั้ง Node.js เวอร์ชัน LTS ล่าสุด
+### 4. รันคำสั่งติดตั้ง Node.js เวอร์ชัน LTS ล่าสุด
+
+```bash
+nvm install node --lts
+```
 
 ![install-done](/assets/articles/how-to-setup-nodejs/install-done.png)
 
