@@ -5,10 +5,16 @@
 @layer components {
   .article-section {
     line-height: 1.618;
+    
+    @apply text-base;
 
     &>* {
       margin-bottom: 1.75rem;
     }
+  }
+
+  .article-section a {
+    @apply underline hover:no-underline;
   }
   
   .article-section h1 {
@@ -17,6 +23,10 @@
   
   .article-section h2 {
     @apply text-xl font-semibold;
+  }
+
+  .article-section h3 {
+    @apply font-semibold;
   }
 
   .article-section pre {
