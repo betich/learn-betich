@@ -34,9 +34,9 @@
   }
 
   .article-section pre {
-    white-space: pre-wrap;
+    // white-space: pre-wrap;
 
-    @apply bg-dark-400 border border-outline rounded-md p-6;
+    @apply bg-dark-400 border border-outline rounded-md p-6 overflow-auto;
   }
 
   .article-section code {
