@@ -43,8 +43,16 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 วิธีเปิดไฟล์ (ใช้ `nano` หรือ `vim` ก็ได้)
 
+windows
+
 ```bash
 nano ~/.bashrc
+```
+
+macos
+
+```bash
+nano ~/.zshrc
 ```
 
 โค้ดที่ต้อง Copy
