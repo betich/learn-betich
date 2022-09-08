@@ -39,7 +39,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 ![install-nvm](/assets/articles/how-to-setup-nodejs/install-nvm.png)
 
-### 2. เปิดไฟล์ `~/.bashrc` แล้วเพิ่มบรรทัดดังกล่าวลงไปด้านล่างของไฟล์
+### 2. เปิดไฟล์ (windows - `~/.bashrc` ; macos - `~/.zshrc`) แล้วเพิ่มบรรทัดดังกล่าวลงไปด้านล่างของไฟล์
 
 วิธีเปิดไฟล์ (ใช้ `nano` หรือ `vim` ก็ได้)
 
@@ -60,8 +60,16 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 ### 3. Restart Terminal ด้วยการรันคำสั่ง
 
+windows
+
 ```bash
 source ~/.bashrc
+```
+
+macos
+
+```bash
+source ~/.zshrc
 ```
 
 ### 4. รันคำสั่งติดตั้ง Node.js เวอร์ชัน LTS ล่าสุด
